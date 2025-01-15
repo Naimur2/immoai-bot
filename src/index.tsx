@@ -18,8 +18,13 @@ class ChatbotElement extends HTMLElement {
     this.root.render(<Chatbot {...props} />);
 
     const style = document.createElement("style");
-    const css = chatStyles.toString();
-    style.textContent = css;
+    // const css = chatStyles.toString();
+    style.textContent = `
+         .open-chat {
+            background-color: red;
+         }
+
+    `;
     this.shadowRoot?.appendChild(style);
   }
 
