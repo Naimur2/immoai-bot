@@ -10,7 +10,7 @@
     "dev": "rollup -c --watch",
     "serve": "vite",
     "start": "vite",
-    "build:css": "postcss src/index.css -o src/styles/tailwind.css"
+    "build:css": "postcss src/index.css -o src/styles/tailwind.txt"
   },
   "dependencies": {
     "lit": "^3.2.1",
