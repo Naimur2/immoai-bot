@@ -3,5 +3,5 @@ interface ChatbotProps {
     apiKey: string;
     theme?: string;
 }
-declare const Chatbot: React.FC<ChatbotProps>;
-export default Chatbot;
+declare const ChatbotContent: React.FC<ChatbotProps>;
+export default ChatbotContent;

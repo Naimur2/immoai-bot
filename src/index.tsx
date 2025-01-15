@@ -1,6 +1,6 @@
-import * as ReactDOM from "react-dom/client";
-import Chatbot from "./components/ChatBot";
 import React from "react";
+import * as ReactDOM from "react-dom/client";
+import ChatbotContent from "./components";
 import chatStyles from "./styles/tailwind.txt";
 
 class ChatbotElement extends HTMLElement {
@@ -14,11 +14,10 @@ class ChatbotElement extends HTMLElement {
   connectedCallback() {
     const props = this.getProps();
     this.root = ReactDOM.createRoot(this.shadowRoot!); // Use createRoot
-    this.root.render(<Chatbot {...props} />);
+    this.root.render(<ChatbotContent {...props} />);
 
     const style = document.createElement("style");
     const css = chatStyles;
-    // @ts-ignore
     style.textContent = css;
     this.shadowRoot?.appendChild(style);
   }

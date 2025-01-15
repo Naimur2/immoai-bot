@@ -1,34 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
 :root {
-    --x-position-back: 20px;
-    --x-position: -20px;
+  --x-position-back: 20px;
+  --x-position: -20px;
 }
 
 @keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: translateX(var(--x-position));
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
+  0% {
+    opacity: 0;
+    transform: translateX(var(--x-position));
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(var(--x-position-back));
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  0% {
+    opacity: 0;
+    transform: translateY(var(--x-position-back));
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .open-chat {
-    animation: fadeInUp 1s ease;
+  animation: fadeInUp 1s ease;
+}
+
+.border-gradient {
+  border: 1px solid;
+  border-image-source: linear-gradient(90deg, #ccbdff 0%, #f6c5d1 100%);
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 1.125rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 3px solid currentColor;
+  animation: l20-1 0.8s infinite linear alternate, l20-2 1.6s infinite linear;
+}
+@keyframes l20-1 {
+  0% {
+    clip-path: polygon(50% 50%, 0 0, 50% 0%, 50% 0%, 50% 0%, 50% 0%, 50% 0%);
+  }
+  12.5% {
+    clip-path: polygon(
+      50% 50%,
+      0 0,
+      50% 0%,
+      100% 0%,
+      100% 0%,
+      100% 0%,
+      100% 0%
+    );
+  }
+  25% {
+    clip-path: polygon(
+      50% 50%,
+      0 0,
+      50% 0%,
+      100% 0%,
+      100% 100%,
+      100% 100%,
+      100% 100%
+    );
+  }
+  50% {
+    clip-path: polygon(
+      50% 50%,
+      0 0,
+      50% 0%,
+      100% 0%,
+      100% 100%,
+      50% 100%,
+      0% 100%
+    );
+  }
+  62.5% {
+    clip-path: polygon(
+      50% 50%,
+      100% 0,
+      100% 0%,
+      100% 0%,
+      100% 100%,
+      50% 100%,
+      0% 100%
+    );
+  }
+  75% {
+    clip-path: polygon(
+      50% 50%,
+      100% 100%,
+      100% 100%,
+      100% 100%,
+      100% 100%,
+      50% 100%,
+      0% 100%
+    );
+  }
+  100% {
+    clip-path: polygon(
+      50% 50%,
+      50% 100%,
+      50% 100%,
+      50% 100%,
+      50% 100%,
+      50% 100%,
+      0% 100%
+    );
+  }
+}
+@keyframes l20-2 {
+  0% {
+    transform: scaleY(1) rotate(0deg);
+  }
+  49.99% {
+    transform: scaleY(1) rotate(135deg);
+  }
+  50% {
+    transform: scaleY(-1) rotate(0deg);
+  }
+  100% {
+    transform: scaleY(-1) rotate(-135deg);
+  }
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading;
+  }
+
+  body {
+    @apply bg-[#F5F5F8] text-[#313131] scroll-smooth;
+  }
+  .input-border {
+    border: 1px solid;
+    border-image-source: linear-gradient(90deg, #ccbdff 0%, #f6c5d1 100%);
+  }
+
+  .list-items {
+    @apply [&>li]:before:content-[''] [&>li]:before:block [&>li]:before:size-[0.325rem] [&>li]:before:bg-[#313131] 
+        [&>li]:before:rounded-full [&>li]:grid [&>li]:items-start [&>li]:gap-3 [&>li]:grid-cols-[auto,1fr] [&>li]:ml-1 [&>li]:before:mt-1 md:[&>li]:before:mt-[0.625rem];
+  }
+
+  .gradient-text {
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .header-text {
+    @apply text-2xl sm:text-[2rem] md:text-4xl lg:text-[2.5rem] xl:text-5xl 2xl:text-[3.25rem] font-bold max-w-[21ch] 
+        max-lg:text-center max-lg:mx-auto 
+        2xl:leading-[4.25rem] lg:leading-[3.5rem] xl:leading-[4rem] md:leading-[3.25rem] sm:leading-[2.575rem] leading-[2.275rem];
+  }
+
+  .description-title {
+    @apply font-semibold text-lg sm:text-xl  lg:text-2xl xl:text-3xl !text-black;
+  }
+
+  .description-item {
+    @apply text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl !text-black;
+  }
+  .card {
+    @apply rounded-2xl py-5 px-3 2xl:px-6 border border-[#6F6F6F33] space-y-8 bg-white;
+  }
+
+  .checkbox {
+    @apply appearance-none size-5 lg:size-6 bg-[url('../../public/svg/icons/ticksquare-linear.svg')] bg-contain bg-no-repeat bg-center;
+  }
+
+  .checkbox:checked {
+    @apply bg-[url('../../public/svg/icons/ticksquare-bold.svg')];
+  }
 }

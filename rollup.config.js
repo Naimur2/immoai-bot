@@ -10,6 +10,8 @@ import { importAsString } from "rollup-plugin-string-import";
 
 const myVariables = {
   NODE_ENV: "production",
+  VITE_APP_API_URL:
+    "https://api.immoai-bot.com",
 };
 
 export default {
