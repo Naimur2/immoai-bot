@@ -3,7 +3,7 @@ import Chatbot from "./components/ChatBot";
 import React from "react";
 import chatStyles from "./styles/tailwind.css";
 
-
+console.log("chatStyles", chatStyles);
 
 class ChatbotElement extends HTMLElement {
   private root: ReactDOM.Root | null = null;
