@@ -4,7 +4,12 @@ import typescript from 'rollup-plugin-typescript2';
 import postcss from 'rollup-plugin-postcss';
 import { terser } from 'rollup-plugin-terser';
 import polyfillNode from "rollup-plugin-polyfill-node";
+import bakedEnv from "rollup-plugin-baked-env";
 
+
+const myVariables = {
+  NODE_ENV: "production",
+};
 
 export default {
   input: "src/index.tsx",
@@ -22,5 +27,11 @@ export default {
     postcss({ extract: true, minimize: true }),
     terser(),
     polyfillNode(),
+    bakedEnv(myVariables, {
+      moduleName: "env",
+      preferConst: true,
+      compact: false,
+      indent: "  ",
+    }),
   ],
 };
