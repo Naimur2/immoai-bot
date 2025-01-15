@@ -3,14 +3,16 @@ import commonjs from '@rollup/plugin-commonjs';
 import typescript from 'rollup-plugin-typescript2';
 import postcss from 'rollup-plugin-postcss';
 import { terser } from 'rollup-plugin-terser';
+import polyfillNode from "rollup-plugin-polyfill-node";
+
 
 export default {
-  input: 'src/index.tsx',
+  input: "src/index.tsx",
   output: [
     {
-      file: 'bot/chat.js',
-      format: 'iife', // Browser-friendly format
-      name: 'ChatBot', // Global name
+      file: "bot/chat.js",
+      format: "iife", // Browser-friendly format
+      name: "ChatBot", // Global name
     },
   ],
   plugins: [
@@ -19,5 +21,6 @@ export default {
     typescript(),
     postcss({ extract: true, minimize: true }),
     terser(),
+    polyfillNode(),
   ],
 };
