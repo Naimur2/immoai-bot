@@ -7,7 +7,9 @@
         "lint": "eslint .",
         "preview": "vite preview",
         "build": "rollup -c",
-        "dev": "rollup -c --watch"
+        "dev": "rollup -c --watch",
+        "serve": "vite",
+        "start": "vite"
     },
     "dependencies": {
         "lit": "^3.2.1",
