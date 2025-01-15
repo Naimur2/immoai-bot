@@ -1,6 +1,5 @@
 import * as ReactDOM from "react-dom/client";
 import Chatbot from "./components/ChatBot";
-import "./index.css";
 import React from "react";
 import chatStyles from "./styles/tailwind.css";
 
