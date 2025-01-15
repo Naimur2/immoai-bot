@@ -4,6 +4,8 @@ import "./index.css";
 import React from "react";
 import chatStyles from "./styles/tailwind.css";
 
+
+
 class ChatbotElement extends HTMLElement {
   private root: ReactDOM.Root | null = null;
 

@@ -5,6 +5,7 @@ import postcss from "rollup-plugin-postcss";
 import { terser } from "rollup-plugin-terser";
 import polyfillNode from "rollup-plugin-polyfill-node";
 import bakedEnv from "rollup-plugin-baked-env";
+import { string } from "rollup-plugin-string";
 
 const myVariables = {
   NODE_ENV: "production",
@@ -31,6 +32,10 @@ export default {
       preferConst: true,
       compact: false,
       indent: "  ",
+    }),
+    string({
+      // Required to be specified
+      include: "**/*.css",
     }),
   ],
 };
