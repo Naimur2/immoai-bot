@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useLayoutEffect } from "react";
+import chatStyles from "../styles/tailwind.css";
 
 interface ChatbotProps {
   apiKey: string;
@@ -11,10 +12,8 @@ const Chatbot: React.FC<ChatbotProps> = ({ apiKey }) => {
       className={
         "fixed bottom-10 right-10 p-4 shadow-md rounded-md bg-slate-300 w-[clamp(10rem,60vw,40rem)] open-chat"
       }
-      style={{
-        backgroundColor: "red",
-      }}
     >
+        
       <h1 className="text-xl font-bold">Chatbot</h1>
       <p>API Key: {apiKey}</p>
     </div>
