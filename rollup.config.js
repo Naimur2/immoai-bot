@@ -35,7 +35,7 @@ export default {
       indent: "  ",
     }),
     importAsString({
-      include: ["**/*.txt"],
+      include: ["**/*.txt", "**/*.css"],
     }),
   ],
 };

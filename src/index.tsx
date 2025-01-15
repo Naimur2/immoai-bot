@@ -1,7 +1,7 @@
 import * as ReactDOM from "react-dom/client";
 import Chatbot from "./components/ChatBot";
 import React from "react";
-import chatStyles from "./styles/tailwind.txt";
+import chatStyles from "./styles/tailwind.css?inline";
 
 
 class ChatbotElement extends HTMLElement {
