@@ -8,7 +8,7 @@ export default {
   input: 'src/main.tsx',
   output: [
     {
-      file: 'dist/chat-bot.js',
+      file: 'bot/chat.js',
       format: 'iife', // Browser-friendly format
       name: 'ChatBot', // Global name
     },
