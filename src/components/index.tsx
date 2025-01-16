@@ -8,7 +8,7 @@ interface ChatbotProps {
   theme?: string;
 }
 
-const ChatbotContent: React.FC<ChatbotProps> = ({ apiKey }) => {
+const ChatWidget: React.FC<ChatbotProps> = ({ apiKey }) => {
   const [isLoading, setIsLoading] = React.useState(true);
   const [data, setData] = React.useState<TGetAssistantConfig | null>(null);
 
@@ -63,4 +63,4 @@ const ChatbotContent: React.FC<ChatbotProps> = ({ apiKey }) => {
   );
 };
 
-export default ChatbotContent;
+export default ChatWidget;

@@ -1,6 +1,6 @@
 import React from "react";
-import ChatbotContent from "./components";
+import ChatWidget from "./components";
 
 export default function App() {
-  return <ChatbotContent apiKey="immobot_COYdFaXW0RIlegRtPxN8noTp2b8zIXJicJ" />;
+  return <ChatWidget apiKey="immobot_COYdFaXW0RIlegRtPxN8noTp2b8zIXJicJ" />;
 }

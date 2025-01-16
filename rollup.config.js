@@ -9,12 +9,11 @@ import { terser } from "rollup-plugin-terser";
 import typescript from "rollup-plugin-typescript2";
 import tsConfigPaths from "rollup-plugin-ts-paths";
 import gzipPlugin from "rollup-plugin-gzip";
-
+import { babel } from "@rollup/plugin-babel";
 
 const myVariables = {
   NODE_ENV: "production",
-  VITE_APP_API_URL:
-    "https://api.immoai-bot.com",
+  VITE_APP_API_URL: "https://api.immoai-bot.com",
 };
 
 export default {
@@ -65,5 +64,9 @@ export default {
     }),
     tsConfigPaths(),
     gzipPlugin(),
+    babel({
+      babelHelpers: "bundled",
+      exclude: "node_modules/**",
+    }),
   ],
 };
