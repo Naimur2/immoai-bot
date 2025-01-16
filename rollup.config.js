@@ -17,13 +17,13 @@ const myVariables = {
 };
 
 export default {
-  input: "src/components/index.tsx",
+  input: "src/index.tsx",
   output: [
-    // {
-    //   file: "bot/chat.js",
-    //   format: "iife", // Browser-friendly format
-    //   name: "ChatBot", // Global name
-    // },
+    {
+      file: "bot/chat.js",
+      format: "iife", // Browser-friendly format
+      name: "ChatBot", // Global name
+    },
     {
       file: "bot/chat-widget.js",
       format: "umd", // Universal Module Definition for browser compatibility

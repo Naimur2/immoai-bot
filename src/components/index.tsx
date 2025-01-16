@@ -8,7 +8,7 @@ interface ChatbotProps {
   theme?: string;
 }
 
-const ChatWidget = ({ apiKey }: { apiKey: string }) => {
+const AiChatBot = ({ apiKey }: { apiKey: string }) => {
   const [isLoading, setIsLoading] = React.useState(true);
   const [data, setData] = React.useState<TGetAssistantConfig | null>(null);
 
@@ -63,10 +63,4 @@ const ChatWidget = ({ apiKey }: { apiKey: string }) => {
   );
 };
 
-ChatWidget.render = (props: ChatbotProps, element: HTMLElement) => {
-  import("react-dom/client").then(({ createRoot }) => {
-    const root = createRoot(element);
-    root.render(<ChatWidget {...props} />);
-  });
-};
-export default ChatWidget;
+export default AiChatBot;

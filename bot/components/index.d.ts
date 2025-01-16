@@ -1,7 +1,5 @@
 import React from "react";
-interface ChatbotProps {
+declare const AiChatBot: ({ apiKey }: {
     apiKey: string;
-    theme?: string;
-}
-declare const ChatWidget: React.FC<ChatbotProps>;
-export default ChatWidget;
+}) => React.JSX.Element | null;
+export default AiChatBot;
