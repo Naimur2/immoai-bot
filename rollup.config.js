@@ -18,12 +18,21 @@ const myVariables = {
 };
 
 export default {
-  input: "src/index.tsx",
+  input: "src/components/index.tsx",
   output: [
+    // {
+    //   file: "bot/chat.js",
+    //   format: "iife", // Browser-friendly format
+    //   name: "ChatBot", // Global name
+    // },
     {
-      file: "bot/chat.js",
-      format: "iife", // Browser-friendly format
-      name: "ChatBot", // Global name
+      file: "bot/chat-widget.js",
+      format: "umd", // Universal Module Definition for browser compatibility
+      name: "ChatWidget", // Global variable name
+    },
+    {
+      file: "bot/chat-widget.esm.js",
+      format: "es", // ES Module
     },
   ],
   plugins: [
