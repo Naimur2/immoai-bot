@@ -1,6 +1,6 @@
 import React from "react";
-import useChatSettings from "../../context/useChatSettings";
-import ChatBot from "../ChatBot";
+import ChatBot from "../components/ChatBot";
+import useChatSettings from "../context/useChatSettings";
 
 
 const ChatbotPage = () => {

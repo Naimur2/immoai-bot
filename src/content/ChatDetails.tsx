@@ -1,7 +1,7 @@
 import React from "react";
-import useChatSettings from "../../context/useChatSettings";
-import Button from "../Button";
-import ChatBot from "../ChatBot";
+import Button from "../components/Button";
+import ChatBot from "../components/ChatBot";
+import useChatSettings from "../context/useChatSettings";
 
 export default function ChatDetails() {
   const { data, isLoading, setPage } = useChatSettings();
@@ -30,7 +30,9 @@ export default function ChatDetails() {
       </div>
       <div className="py-4 flex flex-col gap-4">
         <div className="py-4 px-4 w-full max-w-lg grid grid-cols-[auto,1fr] gap-4 mx-auto bg-chat-item-bg rounded-lg">
-          <img src={"/svg/telephone.svg"} alt="phone" width={24} height={24} />
+          <img src={"/svg/telephone.svg"} alt="phone" width={24} height={24} 
+          
+          />
           <p className="text-[#313131] font-medium text-lg">
             {data?.assistant_general?.agent_telephone || "0800 123 456"}
           </p>
@@ -43,7 +45,9 @@ export default function ChatDetails() {
           </p>
         </div>
         <div className="py-4 px-4 w-full max-w-lg grid grid-cols-[auto,1fr] gap-4 mx-auto bg-chat-item-bg rounded-lg">
-          <img src={"/svg/mail.svg"} alt="phone" width={24} height={24} />
+          <img src={"/svg/mail.svg"} alt="phone" width={24} height={24}
+           className="translate-y-1"
+           />
           <p className="text-[#313131] font-medium text-lg">
             {data?.assistant_general?.agent_email ||
               "info@td-digitalsolutions.com"}

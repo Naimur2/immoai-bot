@@ -9,5 +9,7 @@ export default function useChatSettings() {
     isLoading: state.isLoading,
     page: state.page,
     setPage: state.setPage,
+    isOpened: state.isOpened,
+    setIsOpened: state.setIsOpened,
   };
 }

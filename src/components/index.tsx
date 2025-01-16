@@ -1,6 +1,6 @@
 import React from "react";
+import ChatBox from "../content";
 import ChatSettingsProvider from "../context/ChatSettingsProvider";
-import ChatBox from "./content";
 import { TGetAssistantConfig } from "./types";
 
 interface ChatbotProps {

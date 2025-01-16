@@ -11,6 +11,8 @@ const ChatSettingsProvider = ({
 }) => {
   const [data, setData] = useState<TGetAssistantConfig | null>(null);
   const [page, setPage] = useState<"description" | "chat">("description");
+  const [isOpened, setIsOpened] = useState(false);
+  const socketRef = React.useRef<WebSocket | null>(null);
 
   const [isLoading, setIsLoading] = React.useState(true);
 
@@ -54,6 +56,28 @@ const ChatSettingsProvider = ({
     };
   }, [apiKey]);
 
+  React.useEffect(() => {
+    if (apiKey) {
+      socketRef.current = new WebSocket(
+        "ws://api.immoai-bot.com/chatbot/start_chat/ws/" + apiKey
+      );
+
+      socketRef.current.onmessage = (event) => {
+        console.log("Message received", event.data);
+      };
+
+      socketRef.current.onopen = () => {
+        console.log("Socket opened");
+      };
+      socketRef.current.onclose = () => {
+        console.log("Socket closed");
+      };
+      socketRef.current.onerror = (err) => {
+        console.log("Socket error", err);
+      };
+    }
+  }, [apiKey]);
+
   const value = React.useMemo(
     () => ({
       data,
@@ -64,9 +88,13 @@ const ChatSettingsProvider = ({
       page,
       setPage: (page: "description" | "chat") => {
         setPage(page);
-      }
+      },
+      isOpened,
+      setIsOpened: (isOpened: boolean) => {
+        setIsOpened(isOpened);
+      },
     }),
-    [data, isLoading, page]
+    [data, isLoading, isOpened, page]
   );
 
   return (

@@ -3,4 +3,6 @@ export default function useChatSettings(): {
     isLoading: boolean;
     page: "description" | "chat";
     setPage: (page: "description" | "chat") => void;
+    isOpened: boolean;
+    setIsOpened: (isOpened: boolean) => void;
 };

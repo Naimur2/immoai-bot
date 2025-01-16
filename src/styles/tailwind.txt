@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap");
 
 *, ::before, ::after{
   --tw-border-spacing-x: 0;
@@ -558,8 +558,8 @@ body{
 .fixed{
   position: fixed;
 }
-.bottom-6{
-  bottom: 1.5rem;
+.bottom-8{
+  bottom: 2rem;
 }
 .right-10{
   right: 2.5rem;
@@ -599,11 +599,22 @@ body{
   width: 2rem;
   height: 2rem;
 }
+.size-\[var\(--widget-size\)\]{
+  width: var(--widget-size);
+  height: var(--widget-size);
+}
+.size-full{
+  width: 100%;
+  height: 100%;
+}
 .\!h-10{
   height: 2.5rem !important;
 }
 .h-\[clamp\(15rem\2c 88vh\2c 70rem\)\]{
   height: clamp(15rem,88vh,70rem);
+}
+.h-\[var\(--chat-now-height\)\]{
+  height: var(--chat-now-height);
 }
 .h-full{
   height: 100%;
@@ -616,6 +627,9 @@ body{
 }
 .w-\[clamp\(10rem\2c calc\(100vw-80px\)\2c 50rem\)\]{
   width: clamp(10rem,calc(100vw - 80px),50rem);
+}
+.w-\[var\(--chat-now-width\)\]{
+  width: var(--chat-now-width);
 }
 .w-full{
   width: 100%;
@@ -635,8 +649,15 @@ body{
 .max-w-lg{
   max-width: 32rem;
 }
+.translate-y-1{
+  --tw-translate-y: 0.25rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
 .cursor-not-allowed{
   cursor: not-allowed;
+}
+.cursor-pointer{
+  cursor: pointer;
 }
 .resize-none{
   resize: none;
@@ -661,6 +682,9 @@ body{
 }
 .flex-wrap{
   flex-wrap: wrap;
+}
+.place-items-end{
+  place-items: end;
 }
 .place-items-center{
   place-items: center;
@@ -700,6 +724,12 @@ body{
 }
 .rounded-\[0\.625rem\]{
   border-radius: 0.625rem;
+}
+.rounded-\[var\(--chat-now-border-radius\)\]{
+  border-radius: var(--chat-now-border-radius);
+}
+.rounded-\[var\(--widget-border-radius\)\]{
+  border-radius: var(--widget-border-radius);
 }
 .rounded-full{
   border-radius: 9999px;
@@ -756,6 +786,12 @@ body{
 .border-t-\[\#707C9726\]{
   border-top-color: #707C9726;
 }
+.bg-\[var\(--chat-now-background-color\)\]{
+  background-color: var(--chat-now-background-color);
+}
+.bg-\[var\(--widget-color\)\]{
+  background-color: var(--widget-color);
+}
 .bg-primary-100{
   --tw-bg-opacity: 1;
   background-color: rgb(92 43 255 / var(--tw-bg-opacity, 1));
@@ -797,6 +833,10 @@ body{
 .px-4{
   padding-left: 1rem;
   padding-right: 1rem;
+}
+.px-6{
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 .py-1{
   padding-top: 0.25rem;
@@ -871,6 +911,9 @@ body{
   --tw-text-opacity: 1;
   color: rgb(255 51 102 / var(--tw-text-opacity, 1));
 }
+.text-\[var\(--chat-now-text-color\)\]{
+  color: var(--chat-now-text-color);
+}
 .text-black{
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity, 1));
@@ -923,7 +966,6 @@ body{
   display: none;
 }
 
-
 :root {
   --x-position-back: 20px;
   --x-position: -20px;
@@ -952,7 +994,11 @@ body{
 }
 
 .open-chat {
-  animation: fadeInUp 1s ease;
+  animation: fadeInUp 0.5s ease;
+}
+
+.open-widget {
+  animation: fadeIn var(--chat-open-time, 1s) ease;
 }
 
 .border-gradient {

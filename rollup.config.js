@@ -1,12 +1,15 @@
-import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
-import typescript from "rollup-plugin-typescript2";
-import postcss from "rollup-plugin-postcss";
-import { terser } from "rollup-plugin-terser";
-import polyfillNode from "rollup-plugin-polyfill-node";
+import resolve from "@rollup/plugin-node-resolve";
+import url from "@rollup/plugin-url";
 import bakedEnv from "rollup-plugin-baked-env";
-import { string } from "rollup-plugin-string";
+import polyfillNode from "rollup-plugin-polyfill-node";
+import postcss from "rollup-plugin-postcss";
 import { importAsString } from "rollup-plugin-string-import";
+import { terser } from "rollup-plugin-terser";
+import typescript from "rollup-plugin-typescript2";
+import tsConfigPaths from "rollup-plugin-ts-paths";
+import gzipPlugin from "rollup-plugin-gzip";
+
 
 const myVariables = {
   NODE_ENV: "production",
@@ -39,5 +42,19 @@ export default {
     importAsString({
       include: ["**/*.txt", "**/*.css"],
     }),
+    url({
+      publicPath: "/public/",
+      include: [
+        "**/*.svg",
+        "**/*.png",
+        "**/*.jpg",
+        "**/*.gif",
+        "**/*.woff",
+        "**/*.woff2",
+      ],
+      limit: Infinity,
+    }),
+    tsConfigPaths(),
+    gzipPlugin(),
   ],
 };

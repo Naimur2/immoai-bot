@@ -1,11 +1,11 @@
 import React from "react";
-import useChatSettings from "../../context/useChatSettings";
-import ChatBot from "../ChatBot";
+import ChatBot from "../components/ChatBot";
+import useChatSettings from "../context/useChatSettings";
 import ChatDetails from "./ChatDetails";
 import ChatbotPage from "./ChatPage";
 
-const ChatBox: React.FC = () => {
-  const { data, isLoading, page, setPage } = useChatSettings();
+const Conversation: React.FC = () => {
+  const { data, isLoading, page, setPage, setIsOpened } = useChatSettings();
 
   if (isLoading || !data) {
     return null;
@@ -16,8 +16,9 @@ const ChatBox: React.FC = () => {
   return (
     <div
       className={
-        "fixed bottom-6 right-10 rounded-md w-[clamp(10rem,calc(100vw-80px),50rem)] open-chat h-[clamp(15rem,88vh,70rem)] xl:w-[clamp(10rem,calc(100vw-80px),38rem)]  grid"
+        " fixed bottom-8 right-10 w-[clamp(10rem,calc(100vw-80px),50rem)] open-chat h-[clamp(15rem,88vh,70rem)] xl:w-[clamp(10rem,calc(100vw-80px),38rem)]  grid"
       }
+      style={{ zIndex: 999999999 }}
     >
       <ChatBot
         borderRadius={chatBorderRadius ? `${chatBorderRadius}px` : undefined}
@@ -39,7 +40,12 @@ const ChatBox: React.FC = () => {
                 onClick={() => setPage("description")}
               />
             )}
-            <ChatBot.Header.Right.CloseButton />
+            <ChatBot.Header.Right.CloseButton
+              onClick={() => {
+                setIsOpened(false);
+                setPage("description");
+              }}
+            />
           </ChatBot.Header.Right>
         </ChatBot.Header>
         {page === "description" ? <ChatDetails /> : <ChatbotPage />}
@@ -48,4 +54,4 @@ const ChatBox: React.FC = () => {
   );
 };
 
-export default ChatBox;
+export default Conversation;
