@@ -27,7 +27,11 @@ export default {
     {
       file: "bot/chat-widget.js",
       format: "umd", // Universal Module Definition for browser compatibility
-      name: "ChatWidget", // Global variable name
+      name: "ChatWidget", // Global variable name,
+      globals: {
+        react: "React",
+        "react-dom": "ReactDOM",
+      },
     },
     {
       file: "bot/chat-widget.esm.js",
