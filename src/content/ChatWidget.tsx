@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import useChatSettings from "../context/useChatSettings";
+import defaultImage from "../assets/images/bot.png";
 
 export default function ChatWidget() {
   const [isOpened, setIsOpened] = useState(false);
@@ -7,7 +8,7 @@ export default function ChatWidget() {
   const { data, setIsOpened: setOpened } = useChatSettings();
 
   const chatWidgetImage =
-    data?.assistant_styles?.chat_widget_image ?? "/images/bot.png";
+    data?.assistant_styles?.chat_widget_image ?? defaultImage;
   const chatWidgetColor = data?.assistant_styles?.chat_widget_color ?? "#000";
   const widgetSize = data?.assistant_styles?.widget_size ?? 80;
   const widgetBorderRadius =

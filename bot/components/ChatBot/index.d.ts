@@ -3,7 +3,7 @@ import ChatBubble from "./components/ChatBubble";
 import DateSeparator from "./components/DateSeparator";
 import ChatHeader from "./components/ChatHeader";
 import ChatToolbar from "./components/ChatToolbar";
-declare function ChatBot({ children, className, ...rest }: React.ComponentProps<"div"> & {
+declare function ChatBot({ children, className, borderRadius, ...rest }: React.ComponentProps<"div"> & {
     borderRadius?: string;
 }): React.JSX.Element;
 declare namespace ChatBot {

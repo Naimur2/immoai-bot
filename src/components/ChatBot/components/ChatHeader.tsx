@@ -2,6 +2,7 @@ import { Back, InfoCircle } from "iconsax-react";
 import { X } from "lucide-react";
 import React from "react";
 import { cn } from "../../../lib/utils";
+import defaultImage from "../../../assets/images/td.png";
 
 type TChatHeaderProps = {
   title?: string;
@@ -66,7 +67,7 @@ ChatHeaderRight.CloseButton = CloseButton;
 export default function ChatHeader({
   title = "Max",
   subtitle = "Ihr persönlicher Assistent für alle Fragen rund um TD Dig",
-  avatar = "/images/td.png",
+  avatar = defaultImage,
   children,
   backgroundColor,
 }: TChatHeaderProps) {

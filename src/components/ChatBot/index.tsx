@@ -11,24 +11,26 @@ import { cn } from '../../lib/utils';
 export default function ChatBot({
   children,
   className,
+  borderRadius,
   ...rest
 }: React.ComponentProps<"div"> & {
   borderRadius?: string;
 }) {
   const hasToolbar = Object.keys(ChatBot).includes("ToolBar");
 
+
   return (
     <div
       className={cn(
-        "card p-0 grid grid-rows-[auto,1fr] overflow-hidden mb-4",
+        "card p-0 grid grid-rows-[auto,1fr] overflow-hidden mb-4 rounded-[var(--border-radius)]",
         {
           "grid grid-rows-[auto,1fr,auto]": hasToolbar,
         },
         className
       )}
       style={{
-        borderRadius: rest.borderRadius,
-      }}
+        '--border-radius': borderRadius,
+      } as React.CSSProperties}
       {...rest}
     >
       {children}

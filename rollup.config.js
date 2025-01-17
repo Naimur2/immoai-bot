@@ -24,19 +24,6 @@ export default {
       format: "iife", // Browser-friendly format
       name: "ChatBot", // Global name
     },
-    {
-      file: "bot/chat-widget.js",
-      format: "umd", // Universal Module Definition for browser compatibility
-      name: "ChatWidget", // Global variable name,
-      globals: {
-        react: "React",
-        "react-dom": "ReactDOM",
-      },
-    },
-    {
-      file: "bot/chat-widget.esm.js",
-      format: "es", // ES Module
-    },
   ],
   plugins: [
     resolve(),

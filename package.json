@@ -7,7 +7,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "build": "rollup -c",
-    "dev": "rollup -c --watch",
+    "dev": "vite",
     "serve": "vite",
     "start": "vite",
     "build:css": "postcss src/index.css -o src/styles/tailwind.txt"

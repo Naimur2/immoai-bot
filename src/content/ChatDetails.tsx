@@ -3,9 +3,10 @@ import Button from "../components/Button";
 import ChatBot from "../components/ChatBot";
 import useChatSettings from "../context/useChatSettings";
 
-import telephoneSvg from "../../public/svg/telephone.svg";
-import globeSvg from "../../public/svg/globe.svg";
-import mailSvg from "../../public/svg/mail.svg";
+import telephoneSvg from "../assets/svg/telephone.svg";
+import globeSvg from "../assets/svg/globe.svg";
+import mailSvg from "../assets/svg/mail.svg";
+import defaultImage from "../assets/images/td.png";
 
 export default function ChatDetails() {
   const { data, isLoading, setPage } = useChatSettings();
@@ -18,7 +19,7 @@ export default function ChatDetails() {
     <ChatBot.Content>
       <div className="py-4 flex flex-col gap-2 items-center justify-center text-center">
         <img
-          src={data?.assistant_general?.bot_image || "/images/td.png"}
+          src={data?.assistant_general?.bot_image || defaultImage}
           alt="bot"
           width={100}
           height={100}

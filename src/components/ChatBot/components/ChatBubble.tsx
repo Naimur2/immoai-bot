@@ -1,6 +1,7 @@
 
 import React from "react";
 import { cn } from '../../../lib/utils';
+import defaultImage from "../../../assets/images/chatbot.png";
 
 type ChatBubbleBotProps = {
   text: string;
@@ -16,7 +17,7 @@ export default function ChatBubble({
   type,
   backgroundColor,
   color,
-  image = "/images/chatbot.png",
+  image = defaultImage,
   imageBackgroundColor,
 }: ChatBubbleBotProps) {
   return (
