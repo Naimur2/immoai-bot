@@ -12,7 +12,7 @@ const ChatSettingsProvider = ({
   const [data, setData] = useState<TGetAssistantConfig | null>(null);
   const [page, setPage] = useState<"description" | "chat">("description");
   const [isOpened, setIsOpened] = useState(false);
-  const socketRef = React.useRef<WebSocket | null>(null);
+  // const socketRef = React.useRef<WebSocket | null>(null);
 
   const [isLoading, setIsLoading] = React.useState(true);
 
@@ -56,33 +56,33 @@ const ChatSettingsProvider = ({
     };
   }, [apiKey]);
 
-  React.useEffect(() => {
-   try {
-     if (apiKey) {
-       const ws = new WebSocket(
-         `wss://api.immoai-bot.com/chatbot/start_chat/ws/${apiKey}`
-       );
+  // React.useEffect(() => {
+  //  try {
+  //    if (apiKey) {
+  //      const ws = new WebSocket(
+  //        `wss://api.immoai-bot.com/chatbot/start_chat/ws/${apiKey}`
+  //      );
 
-       socketRef.current = ws;
+  //      socketRef.current = ws;
 
-       socketRef.current.onmessage = (event) => {
-         console.log("Message received", event.data);
-       };
+  //      socketRef.current.onmessage = (event) => {
+  //        console.log("Message received", event.data);
+  //      };
 
-       socketRef.current.onopen = () => {
-         console.log("Socket opened");
-       };
-       socketRef.current.onclose = () => {
-         console.log("Socket closed");
-       };
-       socketRef.current.onerror = (err) => {
-         console.log("Socket error", err);
-       };
-     }
-   } catch (error) {
-      console.error("Error initializing chatbot", error);
-   }
-  }, [apiKey]);
+  //      socketRef.current.onopen = () => {
+  //        console.log("Socket opened");
+  //      };
+  //      socketRef.current.onclose = () => {
+  //        console.log("Socket closed");
+  //      };
+  //      socketRef.current.onerror = (err) => {
+  //        console.log("Socket error", err);
+  //      };
+  //    }
+  //  } catch (error) {
+  //     console.error("Error initializing chatbot", error);
+  //  }
+  // }, [apiKey]);
 
   const value = React.useMemo(
     () => ({
