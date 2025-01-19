@@ -3,10 +3,10 @@ import Button from "../components/Button";
 import ChatBot from "../components/ChatBot";
 import useChatSettings from "../context/useChatSettings";
 
-import telephoneSvg from "../assets/svg/telephone.svg";
+import defaultImage from "../assets/images/td.png";
 import globeSvg from "../assets/svg/globe.svg";
 import mailSvg from "../assets/svg/mail.svg";
-import defaultImage from "../assets/images/td.png";
+import telephoneSvg from "../assets/svg/telephone.svg";
 
 export default function ChatDetails() {
   const { data, isLoading, setPage } = useChatSettings();
@@ -65,7 +65,7 @@ export default function ChatDetails() {
           href={data?.assistant_general?.terms_and_conditions_url}
           target="_blank"
         >
-          Geschäftsbedingungen anzeigen
+          Geschäftsbedingungen
         </a>
         <a
           className="text-black font-medium text-lg mx-auto border-b border-[#CCBDFF] py-2 w-full max-w-lg text-center px-4 block"
@@ -82,7 +82,7 @@ export default function ChatDetails() {
             setPage("chat");
           }}
         >
-          Back to Conversation
+          Zurück zur Unterhaltung
         </Button>
       </div>
     </ChatBot.Content>

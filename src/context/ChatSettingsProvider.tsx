@@ -12,7 +12,7 @@ const ChatSettingsProvider = ({
   const [data, setData] = useState<TGetAssistantConfig | null>(null);
   const [page, setPage] = useState<"description" | "chat">("description");
   const [isOpened, setIsOpened] = useState(false);
-  // const socketRef = React.useRef<WebSocket | null>(null);
+  const socketRef = React.useRef<WebSocket | null>(null);
 
   const [isLoading, setIsLoading] = React.useState(true);
 
@@ -55,7 +55,7 @@ const ChatSettingsProvider = ({
       isMounted = false;
     };
   }, [apiKey]);
-/* 
+
   React.useEffect(() => {
    try {
      if (apiKey) {
@@ -82,7 +82,7 @@ const ChatSettingsProvider = ({
    } catch (error) {
       console.error("Error initializing chatbot", error);
    }
-  }, [apiKey]); */
+  }, [apiKey]);
 
   const value = React.useMemo(
     () => ({

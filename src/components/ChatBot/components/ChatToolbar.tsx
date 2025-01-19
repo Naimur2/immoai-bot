@@ -33,7 +33,7 @@ export default function ChatToolbar({ onSend, isDisabled }: TChatToolbar) {
           value={value}
           rows={2}
           onChange={(e) => setValue(e.currentTarget.value)}
-          placeholder="Type a message..."
+          placeholder="Schreibe eine Nachricht......"
           onKeyDown={(e) => {
             if (e.key === "Enter" && !e.shiftKey) {
               e.preventDefault();
