@@ -45,10 +45,10 @@ const ChatSettingsProvider = ({
           },
         });
 
-        console.log("res", res);
+       
 
         const resData = (await res.json()) as TGetAssistantConfig;
-        console.log("resData", resData);
+  
         setData(resData);
         setIsLoading(false);
       } catch (error) {
