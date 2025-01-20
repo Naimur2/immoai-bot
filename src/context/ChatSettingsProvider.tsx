@@ -33,7 +33,7 @@ const ChatSettingsProvider = ({
       try {
         setIsLoading(true);
         const res = await fetch(
-          "http://35.157.208.171:8000/chatbot/api/get/assistant_configs",
+          "https//api.immoai-bot.com/chatbot/api/get/assistant_configs",
           {
             method: "POST",
             headers: {
@@ -67,7 +67,7 @@ const ChatSettingsProvider = ({
     try {
       if (apiKey) {
         const ws = new WebSocket(
-          `ws://35.157.208.171:8000/chatbot/start_chat/ws/${apiKey}`
+          `wss://api.immoai-bot.com/chatbot/start_chat/ws/${apiKey}`
         );
 
         socketRef.current = ws;
