@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { TGetAssistantConfig } from "../components/types";
 import ChatSettingsContext, { TMessage } from "./ChatSettingsContext";
 
+const baseUrl = "https://api.immoai-bot.com";
+
 type TMessageReceived = {
   status: "success" | "error";
   message: string;
@@ -33,16 +35,15 @@ const ChatSettingsProvider = ({
       try {
         setIsLoading(true);
 
-        const res = await fetch(
-          "https//api.immoai-bot.com/chatbot/api/get/assistant_configs",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              api_key: apiKey,
-            },
-          }
-        );
+        const url = `${baseUrl}/chatbot/api/get/assistant_configs`;
+
+        const res = await fetch(url, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            api_key: apiKey,
+          },
+        });
 
         console.log("res", res);
 
