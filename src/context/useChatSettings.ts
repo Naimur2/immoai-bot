@@ -11,5 +11,8 @@ export default function useChatSettings() {
     setPage: state.setPage,
     isOpened: state.isOpened,
     setIsOpened: state.setIsOpened,
+    sendMessage: state.sendMessage,
+    messages: state.messages,
+    isChatLoading: state.isChatLoading,
   };
 }

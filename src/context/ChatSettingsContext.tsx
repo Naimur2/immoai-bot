@@ -1,6 +1,11 @@
 import { createContext } from "react";
 import { TGetAssistantConfig } from "../components/types";
 
+export type TMessage = {
+  type: "user" | "bot";
+  message: string;
+}
+
 export type ChatSettingsContextType = {
   setData: (data: TGetAssistantConfig) => void;
   data: TGetAssistantConfig | null;
@@ -9,6 +14,9 @@ export type ChatSettingsContextType = {
   setPage: (page: "description" | "chat") => void;
   isOpened: boolean;
   setIsOpened: (isOpened: boolean) => void;
+  sendMessage: (message: string) => void;
+  messages: TMessage[];
+  isChatLoading: boolean;
 };
 
 export const SET_SETTINGS = "SET_SETTINGS";

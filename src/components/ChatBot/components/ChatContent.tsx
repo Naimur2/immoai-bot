@@ -1,6 +1,6 @@
-
 import React, { useImperativeHandle, useLayoutEffect } from "react";
-import { cn } from '../../../lib/utils';
+import { cn } from "../../../lib/utils";
+import useChatSettings from '../../../context/useChatSettings';
 
 export type TChatContentRef = {
   scrollToBottom: () => void;
@@ -14,6 +14,8 @@ const ChatContent = React.forwardRef<
 
   const innerRef = React.useRef<HTMLDivElement>(null);
   const outerRef = React.useRef<HTMLDivElement>(null);
+
+  const { messages } = useChatSettings();
 
   const scrollToBottom = () => {
     if (innerRef.current) {
@@ -30,7 +32,7 @@ const ChatContent = React.forwardRef<
 
   useLayoutEffect(() => {
     scrollToBottom();
-  }, []);
+  }, [messages]);
 
   return (
     <div
@@ -41,9 +43,7 @@ const ChatContent = React.forwardRef<
         rest.className
       )}
     >
-      <div
-        className="flex flex-col justify-end items-end w-full overflow-hidden h-full overflow-y-auto scrollbar-thin scrollbar-thumb-primary-100 scrollbar-track-primary-50 "
-      >
+      <div className="flex flex-col justify-end items-end w-full overflow-hidden h-full overflow-y-auto scrollbar-thin scrollbar-thumb-primary-100 scrollbar-track-primary-50 ">
         <div
           className="w-full grid overflow-scroll scrollbar-hide px-4 py-4 pb-8"
           ref={innerRef}

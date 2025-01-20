@@ -5,4 +5,7 @@ export default function useChatSettings(): {
     setPage: (page: "description" | "chat") => void;
     isOpened: boolean;
     setIsOpened: (isOpened: boolean) => void;
+    sendMessage: (message: string) => void;
+    messages: import("./ChatSettingsContext").TMessage[];
+    isChatLoading: boolean;
 };

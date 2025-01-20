@@ -4,17 +4,13 @@ import ChatWidget from "./ChatWidget";
 import Conversation from "./Conversation";
 
 const ChatBox: React.FC = () => {
-  const { data, isLoading,isOpened  } = useChatSettings();
+  const { data, isLoading, isOpened } = useChatSettings();
 
   if (isLoading || !data) {
     return null;
   }
 
-
-
-  return (
-    isOpened ? <Conversation /> : <ChatWidget />
-  );
+  return isOpened ? <Conversation /> : <ChatWidget />;
 };
 
 export default ChatBox;
