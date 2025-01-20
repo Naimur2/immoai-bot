@@ -22,7 +22,7 @@ export default {
   input: "src/index.tsx",
   output: [
     {
-      file: "bot/chat.js",
+      file: "build/chat.js",
       format: "iife", // Browser-friendly format
       name: "ChatBot", // Global name
     },
