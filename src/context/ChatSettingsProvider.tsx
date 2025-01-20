@@ -32,7 +32,7 @@ const ChatSettingsProvider = ({
       }
       try {
         setIsLoading(true);
-      
+
         const res = await fetch(
           "https//api.immoai-bot.com/chatbot/api/get/assistant_configs",
           {
@@ -44,7 +44,10 @@ const ChatSettingsProvider = ({
           }
         );
 
+        console.log("res", res);
+
         const resData = (await res.json()) as TGetAssistantConfig;
+        console.log("resData", resData);
         setData(resData);
         setIsLoading(false);
       } catch (error) {
@@ -122,7 +125,7 @@ const ChatSettingsProvider = ({
         }
       },
       messages,
-      isChatLoading
+      isChatLoading,
     }),
     [data, isLoading, isOpened, messages, page, isChatLoading]
   );

@@ -10,9 +10,6 @@ import { terser } from "rollup-plugin-terser";
 import tsConfigPaths from "rollup-plugin-ts-paths";
 import typescript from "rollup-plugin-typescript2";
 
-import json from "@rollup/plugin-json";
-
-
 const myVariables = {
   NODE_ENV: "production",
   VITE_APP_API_URL: "https://api.immoai-bot.com",
