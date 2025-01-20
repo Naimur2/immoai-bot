@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { TGetAssistantConfig } from "../components/types";
 import ChatSettingsContext, { TMessage } from "./ChatSettingsContext";
-import axios from "axios";
 
 type TMessageReceived = {
   status: "success" | "error";
@@ -33,19 +32,19 @@ const ChatSettingsProvider = ({
       }
       try {
         setIsLoading(true);
-        const res = await axios.post(
-          "https://api.immoai-bot.com/chatbot/api/get/assistant_configs",
-          {},
+      
+        const res = await fetch(
+          "https//api.immoai-bot.com/chatbot/api/get/assistant_configs",
           {
+            method: "POST",
             headers: {
               "Content-Type": "application/json",
               api_key: apiKey,
             },
           }
         );
-       
 
-        const resData = res.data as TGetAssistantConfig;
+        const resData = (await res.json()) as TGetAssistantConfig;
         setData(resData);
         setIsLoading(false);
       } catch (error) {
