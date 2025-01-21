@@ -2,6 +2,8 @@
 import React from "react";
 import { cn } from '../../../lib/utils';
 import defaultImage from "../../../assets/images/chatbot.png";
+import Markdown from "react-markdown";
+
 
 type ChatBubbleBotProps = {
   text: string;
@@ -27,14 +29,14 @@ export default function ChatBubble({
       })}
     >
       <div
-        className={cn("max-w-[70%] grid gap-4 min-w-[40%]", {
+        className={cn("max-w-[90%] grid gap-4 min-w-[40%]", {
           "grid-cols-[auto,1fr]": type === "bot",
         })}
       >
         {type === "bot" && (
           <div
             className="!h-10 !w-10 rounded-full grid place-items-center bg-primary-100"
-            style={{ backgroundColor: imageBackgroundColor}}
+            style={{ backgroundColor: imageBackgroundColor }}
           >
             <img
               src={image}
@@ -56,7 +58,9 @@ export default function ChatBubble({
           )}
           style={{ color, backgroundColor }}
         >
-          <p className="text-sm md:text-base">{text}</p>
+          <Markdown className="text-sm md:text-base prose lg:prose-xl">
+            {text}
+          </Markdown>
         </div>
       </div>
     </div>

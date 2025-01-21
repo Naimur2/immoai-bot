@@ -19,7 +19,8 @@
     "lit": "^3.2.1",
     "lucide-react": "^0.471.1",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-markdown": "^9.0.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
@@ -27,6 +28,7 @@
     "@rollup/plugin-commonjs": "^28.0.2",
     "@rollup/plugin-node-resolve": "^16.0.0",
     "@rollup/plugin-url": "^8.0.2",
+    "@tailwindcss/typography": "^0.5.16",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
     "@vitejs/plugin-react-swc": "^3.5.0",
