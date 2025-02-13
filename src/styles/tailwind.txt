@@ -1012,10 +1012,6 @@ body{
   width: 5rem;
   height: 5rem;
 }
-.size-8{
-  width: 2rem;
-  height: 2rem;
-}
 .size-\[var\(--widget-size\)\]{
   width: var(--widget-size);
   height: var(--widget-size);
@@ -1027,8 +1023,8 @@ body{
 .\!h-10{
   height: 2.5rem !important;
 }
-.h-\[clamp\(15rem\2c 88vh\2c 70rem\)\]{
-  height: clamp(15rem,88vh,70rem);
+.h-\[clamp\(15rem\2c var\(--chatbot-height\2c 88vh\)\2c 70rem\)\]{
+  height: clamp(15rem,var(--chatbot-height,88vh),70rem);
 }
 .h-\[var\(--chat-now-height\)\]{
   height: var(--chat-now-height);
@@ -1042,8 +1038,8 @@ body{
 .\!w-10{
   width: 2.5rem !important;
 }
-.w-\[clamp\(10rem\2c calc\(100vw-80px\)\2c 50rem\)\]{
-  width: clamp(10rem,calc(100vw - 80px),50rem);
+.w-\[clamp\(10rem\2c calc\(var\(--chatbot-width\2c 100vw\)-80px\)\2c 50rem\)\]{
+  width: clamp(10rem,calc(var(--chatbot-width,100vw) - 80px),50rem);
 }
 .w-\[var\(--chat-now-width\)\]{
   width: var(--chat-now-width);
@@ -1225,10 +1221,6 @@ body{
 }
 .bg-headerBg{
   background-image: linear-gradient(90deg, #5C2BFF 0%, #EA576D 100%);
-}
-.object-contain{
-  -o-object-fit: contain;
-     object-fit: contain;
 }
 .object-cover{
   -o-object-fit: cover;
