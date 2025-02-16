@@ -7,6 +7,7 @@ import ChatToolbar from "./components/ChatToolbar";
 
 import ChatContent from "./components/ChatContent";
 import { cn } from "../../lib/utils";
+import TermsModal from "./components/TermsModal";
 
 export default function ChatBot({
     children,
@@ -47,3 +48,4 @@ ChatBot.Header = ChatHeader;
 ChatBot.MultiChoiceOption = MultiChoiceOption;
 ChatBot.ToolBar = ChatToolbar;
 ChatBot.Content = ChatContent;
+ChatBot.TermsModal = TermsModal;

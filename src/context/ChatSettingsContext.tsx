@@ -4,7 +4,7 @@ import { TGetAssistantConfig } from "../components/types";
 export type TMessage = {
   type: "user" | "bot";
   message: string;
-}
+};
 
 export type ChatSettingsContextType = {
   setData: (data: TGetAssistantConfig) => void;
@@ -17,6 +17,11 @@ export type ChatSettingsContextType = {
   sendMessage: (message: string) => void;
   messages: TMessage[];
   isChatLoading: boolean;
+  showAcceptTermsCount: number;
+  setShowAcceptTermsCount: (showAcceptTermsCount: number) => void;
+  withTerms: boolean;
+  shoWModal: boolean;
+  setShowModal: (showModal: boolean) => void;
 };
 
 export const SET_SETTINGS = "SET_SETTINGS";

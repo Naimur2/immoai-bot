@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import { TGetAssistantConfig } from "../components/types";
 import ChatSettingsContext, { TMessage } from "./ChatSettingsContext";
 
@@ -22,8 +22,10 @@ const ChatSettingsProvider = ({
   const socketRef = React.useRef<WebSocket | null>(null);
   const [messages, setMessages] = useState<TMessage[]>([]);
   const [isChatLoading, setIsChatLoading] = React.useState(false);
-
+  const [showAcceptTermsCount, setShowAcceptTermsCount] = React.useState(0);
+  const [withTerms, setWithTerms] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(true);
+  const [showModal, setShowModal] = React.useState(false);
 
   React.useEffect(() => {
     let isMounted = true;
@@ -45,10 +47,8 @@ const ChatSettingsProvider = ({
           },
         });
 
-       
-
         const resData = (await res.json()) as TGetAssistantConfig;
-  
+
         setData(resData);
         setIsLoading(false);
       } catch (error) {
@@ -103,6 +103,14 @@ const ChatSettingsProvider = ({
     }
   }, [apiKey]);
 
+  useLayoutEffect(() => {
+    const showAcceptTermsCount =
+      data?.assistant_general?.get_privacy_policy_before_chat === "An" ||
+      data?.assistant_general?.get_privacy_policy_before_chat === "yes";
+
+    setWithTerms(showAcceptTermsCount);
+  }, [data]);
+
   const value = React.useMemo(
     () => ({
       data,
@@ -127,8 +135,27 @@ const ChatSettingsProvider = ({
       },
       messages,
       isChatLoading,
+      showAcceptTermsCount,
+      setShowAcceptTermsCount: (val: number) => {
+        setShowAcceptTermsCount((prev) => prev + val);
+      },
+      withTerms,
+      shoWModal: showModal,
+      setShowModal: (showModal: boolean) => {
+        setShowModal(showModal);
+      },
     }),
-    [data, isLoading, isOpened, messages, page, isChatLoading]
+    [
+      data,
+      isLoading,
+      isOpened,
+      messages,
+      page,
+      isChatLoading,
+      showAcceptTermsCount,
+      withTerms,
+      showModal,
+    ]
   );
 
   return (
