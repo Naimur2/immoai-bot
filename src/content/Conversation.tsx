@@ -5,15 +5,7 @@ import ChatDetails from "./ChatDetails";
 import ChatbotPage from "./ChatPage";
 
 const Conversation: React.FC = () => {
-  const {
-    data,
-    isLoading,
-    page,
-    setPage,
-    setIsOpened,
-    withTerms,
-    showAcceptTermsCount,
-  } = useChatSettings();
+  const { data, isLoading, page, setPage, setIsOpened } = useChatSettings();
 
   if (isLoading || !data) {
     return null;
@@ -33,6 +25,8 @@ const Conversation: React.FC = () => {
           zIndex: 999999999,
           "--chatbot-height": chatbotHeight ? `${chatbotHeight}vh` : undefined,
           "--chatbot-width": chatbotWidth ? `${chatbotWidth}vw` : undefined,
+          borderRadius: chatBorderRadius,
+          overflow: "hidden",
         } as React.CSSProperties
       }
     >
@@ -68,8 +62,8 @@ const Conversation: React.FC = () => {
           </ChatBot.Header.Right>
         </ChatBot.Header>
         {page === "description" ? <ChatDetails /> : <ChatbotPage />}
-        <ChatBot.TermsModal />
       </ChatBot>
+      <ChatBot.TermsModal />
     </div>
   );
 };

@@ -26,6 +26,7 @@ const ChatSettingsProvider = ({
   const [withTerms, setWithTerms] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(true);
   const [showModal, setShowModal] = React.useState(false);
+  const [hasAcceptedTerms, setHasAcceptedTerms] = React.useState(false);
 
   React.useEffect(() => {
     let isMounted = true;
@@ -144,6 +145,10 @@ const ChatSettingsProvider = ({
       setShowModal: (showModal: boolean) => {
         setShowModal(showModal);
       },
+      hasAcceptedTerms,
+      setHasAcceptedTerms: (hasAcceptedTerms: boolean) => {
+        setHasAcceptedTerms(hasAcceptedTerms);
+      },
     }),
     [
       data,
@@ -155,6 +160,7 @@ const ChatSettingsProvider = ({
       showAcceptTermsCount,
       withTerms,
       showModal,
+      hasAcceptedTerms,
     ]
   );
 

@@ -17,6 +17,7 @@ export default function ChatDetails() {
     setPage,
     withTerms,
     setShowModal,
+    hasAcceptedTerms,
   } = useChatSettings();
 
   if (isLoading || !data) {
@@ -100,9 +101,7 @@ export default function ChatDetails() {
         <Button
           className="max-w-[20rem] w-full mx-auto"
           onClick={() => {
-            console.log("showAcceptTermsCount", showAcceptTermsCount);
-            console.log("yyyt", showAcceptTermsCount < 1);
-            if (withTerms && showAcceptTermsCount < 1) {
+            if ((withTerms && showAcceptTermsCount < 1) || !hasAcceptedTerms) {
               setShowAcceptTermsCount(showAcceptTermsCount + 1);
               setShowModal(true);
             } else {

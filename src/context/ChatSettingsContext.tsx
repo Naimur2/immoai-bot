@@ -22,6 +22,8 @@ export type ChatSettingsContextType = {
   withTerms: boolean;
   shoWModal: boolean;
   setShowModal: (showModal: boolean) => void;
+  hasAcceptedTerms: boolean;
+  setHasAcceptedTerms: (hasAcceptedTerms: boolean) => void;
 };
 
 export const SET_SETTINGS = "SET_SETTINGS";

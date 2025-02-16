@@ -13,6 +13,7 @@ export default function TermsModal() {
     setPage,
     shoWModal,
     setShowModal,
+    setHasAcceptedTerms,
   } = useChatSettings();
 
   return (
@@ -105,6 +106,7 @@ export default function TermsModal() {
               setPage("chat");
               setShowAcceptTermsCount(1);
               setShowModal(false);
+              setHasAcceptedTerms(true);
             }}
           >
             Akzeptieren
