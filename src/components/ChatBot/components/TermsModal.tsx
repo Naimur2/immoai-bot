@@ -40,23 +40,47 @@ export default function TermsModal() {
         onClick={(e) => e.stopPropagation()}
         role="dialog"
       >
+        <button
+          className="absolute top-2 right-2"
+          onClick={() => {
+            setShowAcceptTermsCount(2);
+            setShowModal(false);
+          }}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+            <path
+              d="M12 22c5.5 0 10-4.5 10-10S17.5 2 12 2 2 6.5 2 12s4.5 10 10 10ZM9.17 14.83l5.66-5.66M14.83 14.83 9.17 9.17"
+              stroke="#000000"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></path>
+          </svg>
+        </button>
+
         <h1 className="text-2xl font-bold">
           Wir benötigen Ihre Einwilligung, um fortzufahren.
         </h1>
         <p className="text-sm">
-          Um unsere Webseite für Sie optimal gestalten und verbessem zu können,
-          venvenden Wir Cookies.
+          Um den Chat für Sie optimal gestalten und verbessern zu können,
+          benötigen wir Ihre Zustimmung zur Verarbeitung der Daten.
         </p>
         <p className="text-sm">
-          Weitere Informationen zu Cookies erhalten Sie in unserer
+          Weitere Informationen dazu erhalten Sie in unserer{" "}
           <a
-            className="text-blue-500 inline-block ml-2"
-            href={data?.assistant_general?.privacy_policy_url}
+            className="text-blue-500 inline-block"
+            href={"https://www.immoai-bot.com/dpa"}
           >
             Datenschutzerklärung
           </a>
         </p>
-        <div className="grid gap-4 py-4">
+        {/*     <div className="grid gap-4 py-4">
           <div className="grid grid-cols-[auto,1fr] gap-4">
             <input
               type="checkbox"
@@ -87,10 +111,10 @@ export default function TermsModal() {
               und Google werden auf der gesamten Webseite aktiviert.)
             </label>
           </div>
-        </div>
+        </div> */}
 
         <div className="flex items-center gap-4 justify-center">
-          <Button
+          {/*         <Button
             variant="secondary"
             onClick={() => {
               setChecked1(true);
@@ -98,16 +122,16 @@ export default function TermsModal() {
             }}
           >
             Alle Akzeptieren
-          </Button>
+          </Button> */}
           <Button
             variant="primary"
-            disabled={!checked1 || !checked2}
             onClick={() => {
               setPage("chat");
               setShowAcceptTermsCount(1);
               setShowModal(false);
               setHasAcceptedTerms(true);
             }}
+            className="w-full bg-[#b4ec4c] text-black hover:bg-[#b1e255] hover:text-black hover:border-[#aec584]"
           >
             Akzeptieren
           </Button>

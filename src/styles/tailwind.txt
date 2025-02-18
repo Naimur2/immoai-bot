@@ -1014,6 +1014,12 @@ body{
 .right-10{
   right: 2.5rem;
 }
+.right-2{
+  right: 0.5rem;
+}
+.top-2{
+  top: 0.5rem;
+}
 .z-\[9999999999\]{
   z-index: 9999999999;
 }
@@ -1026,9 +1032,6 @@ body{
 }
 .mb-4{
   margin-bottom: 1rem;
-}
-.ml-2{
-  margin-left: 0.5rem;
 }
 .block{
   display: block;
@@ -1269,6 +1272,10 @@ body{
 }
 .border-t-\[\#707C9726\]{
   border-top-color: #707C9726;
+}
+.bg-\[\#b4ec4c\]{
+  --tw-bg-opacity: 1;
+  background-color: rgb(180 236 76 / var(--tw-bg-opacity, 1));
 }
 .bg-\[var\(--chat-now-background-color\)\]{
   background-color: var(--chat-now-background-color);
@@ -1885,12 +1892,20 @@ body{
 .placeholder\:text-\[\#707C9750\]::placeholder{
   color: #707C9750;
 }
+.hover\:border-\[\#aec584\]:hover{
+  --tw-border-opacity: 1;
+  border-color: rgb(174 197 132 / var(--tw-border-opacity, 1));
+}
 .hover\:border-primary-100:hover{
   --tw-border-opacity: 1;
   border-color: rgb(92 43 255 / var(--tw-border-opacity, 1));
 }
 .hover\:border-transparent:hover{
   border-color: transparent;
+}
+.hover\:bg-\[\#b1e255\]:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(177 226 85 / var(--tw-bg-opacity, 1));
 }
 .hover\:bg-primary-100:hover{
   --tw-bg-opacity: 1;
@@ -1899,6 +1914,10 @@ body{
 .hover\:bg-white:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+}
+.hover\:text-black:hover{
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity, 1));
 }
 .hover\:text-primary-100:hover{
   --tw-text-opacity: 1;
