@@ -1095,9 +1095,6 @@ body{
 .w-\[calc\(100\%-2rem\)\]{
   width: calc(100% - 2rem);
 }
-.w-\[clamp\(10rem\2c calc\(var\(--chatbot-width\2c 100vw\)-80px\)\2c 50rem\)\]{
-  width: clamp(10rem,calc(var(--chatbot-width,100vw) - 80px),50rem);
-}
 .w-\[var\(--chat-now-width\)\]{
   width: var(--chat-now-width);
 }
