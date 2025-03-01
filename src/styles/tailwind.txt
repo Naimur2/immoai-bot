@@ -1488,8 +1488,8 @@ body{
   --x-position: -20px;
 }
 
-* {
-  font-size: 100% !important;
+html {
+  font-size: 16px !important;
 }
 
 @keyframes fadeIn {
