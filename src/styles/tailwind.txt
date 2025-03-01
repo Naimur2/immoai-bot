@@ -1488,6 +1488,10 @@ body{
   --x-position: -20px;
 }
 
+* {
+  font-size: 100% !important;
+}
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -1938,6 +1942,10 @@ body{
 }
 @media (min-width: 640px){
 
+  .sm\:w-\[clamp\(10rem\2c calc\(100vw-80px\)\2c 38rem\)\]{
+    width: clamp(10rem,calc(100vw - 80px),38rem);
+  }
+
   .sm\:text-sm{
     font-size: 0.875rem;
     line-height: 1.25rem;
@@ -1970,10 +1978,6 @@ body{
   .xl\:size-16{
     width: 4rem;
     height: 4rem;
-  }
-
-  .xl\:w-\[clamp\(10rem\2c calc\(100vw-80px\)\2c 38rem\)\]{
-    width: clamp(10rem,calc(100vw - 80px),38rem);
   }
 
   .xl\:px-5{
