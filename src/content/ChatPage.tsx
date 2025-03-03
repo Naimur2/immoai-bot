@@ -1,10 +1,22 @@
 import React from "react";
 import ChatBot from "../components/ChatBot";
 import useChatSettings from "../context/useChatSettings";
+import { Media } from "@/components/ChatBot/components/ChatToolbar";
 
 const ChatbotPage = () => {
-    const { isLoading, data, sendMessage, messages, isChatLoading } =
+    const { isLoading, data, sendMessage: originalSendMessage, messages, isChatLoading } =
         useChatSettings();
+
+    const sendMessage = (data: { message: string; media: false | Media, file_id : any }) => {
+
+        if(data.message.trim() == '') return
+
+        const messageObject =  {
+            message : data.message,
+            media : data.file_id
+        }
+        originalSendMessage( JSON.stringify(messageObject), data.media );
+    };
 
     if (isLoading || !data) {
         return null;
@@ -55,7 +67,7 @@ const ChatbotPage = () => {
                 ))}
                 {isChatLoading && <span className="chat-loader"></span>}
             </ChatBot.Content>
-            <ChatBot.ToolBar onSend={sendMessage} />
+            <ChatBot.ToolBar onSend={sendMessage} isDisabled={isChatLoading} />
         </>
     );
 };

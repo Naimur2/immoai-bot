@@ -2,6 +2,12 @@ import React from "react";
 import { cn } from "../../../lib/utils";
 import defaultImage from "../../../assets/images/chatbot.png";
 import Markdown from "react-markdown";
+import { InlineWidget } from "react-calendly";
+
+function isCalendlyAppointmentURL(url : string) {
+    const regex = /^https?:\/\/calendly\.com\/[\w-]+\/[\w-]+$/;
+    return regex.test(url);
+}
 
 type ChatBubbleBotProps = {
     text: string;
@@ -20,6 +26,28 @@ export default function ChatBubble({
     image = defaultImage,
     imageBackgroundColor,
 }: ChatBubbleBotProps) {
+    let textParsed;
+    var showAppointment = false;
+    try {
+        textParsed = JSON.parse(text);
+
+        text = `
+            <div>
+                ${textParsed.message}
+                ${textParsed.attachment ? `<p> <a target="__blank" href="${textParsed.attachment?.preview}"> Attachment : ${textParsed.attachment?.id} </a> </p>` : ''}
+            </div>
+        `;
+
+       
+    } catch (error) {
+        if(isCalendlyAppointmentURL(text)){
+            console.log('Calendly Appointment URL',text);
+            showAppointment = true
+        } 
+    }
+
+    console.log('showAppointment',showAppointment);
+
     return (
         <div
             className={cn("flex justify-end gap-4 items-center py-4", {
@@ -55,9 +83,17 @@ export default function ChatBubble({
                     )}
                     style={{ color, backgroundColor }}
                 >
-                    <Markdown className="text-sm md:text-base prose lg:prose-xl">
-                        {text}
-                    </Markdown>
+                    
+                   { showAppointment ?  <InlineWidget
+                    // styles={{ minHeight: "100px", width: "100%" }} 
+                    url={text}
+                    /> : <Markdown className="text-sm md:text-base prose lg:prose-xl" components={{
+                        div: ({ node, ...props }) => <div dangerouslySetInnerHTML={{ __html: text }} {...props} />
+                    }} />} 
+
+                    
+
+
                 </div>
             </div>
         </div>

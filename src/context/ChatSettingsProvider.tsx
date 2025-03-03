@@ -1,8 +1,10 @@
 import React, { useLayoutEffect, useState } from "react";
 import { TGetAssistantConfig } from "../components/types";
 import ChatSettingsContext, { TMessage } from "./ChatSettingsContext";
+import { Media } from "@/components/ChatBot/components/ChatToolbar";
 
-const baseUrl = "https://api.immoai-bot.com";
+const baseUrl = "http://localhost:8000";
+// const baseUrl = "https://api.immoai-bot.com";
 
 type TMessageReceived = {
   status: "success" | "error";
@@ -72,8 +74,12 @@ const ChatSettingsProvider = ({
   React.useEffect(() => {
     try {
       if (apiKey) {
+        // const ws = new WebSocket(
+        //   `wss://api.immoai-bot.com/chatbot/start_chat/ws/${apiKey}`
+        // );
+
         const ws = new WebSocket(
-          `wss://api.immoai-bot.com/chatbot/start_chat/ws/${apiKey}`
+          `ws://localhost:8000/chatbot/start_chat/ws/${apiKey}`
         );
 
         socketRef.current = ws;
@@ -127,9 +133,16 @@ const ChatSettingsProvider = ({
       setIsOpened: (isOpened: boolean) => {
         setIsOpened(isOpened);
       },
-      sendMessage: (message: string) => {
+      sendMessage: (message: string, attachment: false | Media) => {
         if (socketRef.current) {
           setIsChatLoading(true);
+          try {
+            const messageData = JSON.parse(message);
+            messageData.attachment = attachment;
+            message = JSON.stringify(messageData);
+          } catch (error) {
+            
+          }
           setMessages((prev) => [...prev, { type: "user", message }]);
           socketRef.current.send(message);
         }
@@ -163,6 +176,8 @@ const ChatSettingsProvider = ({
       hasAcceptedTerms,
     ]
   );
+
+
 
   return (
     <ChatSettingsContext.Provider value={value}>
