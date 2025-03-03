@@ -16,7 +16,7 @@ interface ChatToolbarProps {
     isDisabled: boolean;
 }
 
-const baseUrl = 'http://localhost:8000'
+const baseUrl = 'https://api.immoai-bot.com'
 
 export default function ChatToolbar({ onSend, isDisabled }: ChatToolbarProps) {
     const [value, setValue] = useState("");

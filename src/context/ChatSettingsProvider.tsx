@@ -3,8 +3,8 @@ import { TGetAssistantConfig } from "../components/types";
 import ChatSettingsContext, { TMessage } from "./ChatSettingsContext";
 import { Media } from "@/components/ChatBot/components/ChatToolbar";
 
-const baseUrl = "http://localhost:8000";
-// const baseUrl = "https://api.immoai-bot.com";
+// const baseUrl = "http://localhost:8000";
+const baseUrl = "https://api.immoai-bot.com";
 
 type TMessageReceived = {
   status: "success" | "error";
@@ -74,13 +74,13 @@ const ChatSettingsProvider = ({
   React.useEffect(() => {
     try {
       if (apiKey) {
-        // const ws = new WebSocket(
-        //   `wss://api.immoai-bot.com/chatbot/start_chat/ws/${apiKey}`
-        // );
-
         const ws = new WebSocket(
-          `ws://localhost:8000/chatbot/start_chat/ws/${apiKey}`
+          `wss://api.immoai-bot.com/chatbot/start_chat/ws/${apiKey}`
         );
+
+        // const ws = new WebSocket(
+        //   `ws://localhost:8000/chatbot/start_chat/ws/${apiKey}`
+        // );
 
         socketRef.current = ws;
 
