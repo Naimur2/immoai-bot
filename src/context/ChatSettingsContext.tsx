@@ -1,5 +1,6 @@
 import { createContext } from "react";
 import { TGetAssistantConfig } from "../components/types";
+import { Media } from "@/components/ChatBot/components/ChatToolbar";
 
 export type TMessage = {
   type: "user" | "bot";
@@ -14,7 +15,7 @@ export type ChatSettingsContextType = {
   setPage: (page: "description" | "chat") => void;
   isOpened: boolean;
   setIsOpened: (isOpened: boolean) => void;
-  sendMessage: (message: string) => void;
+  sendMessage: (message: string, attachment : Media | false) => void;
   messages: TMessage[];
   isChatLoading: boolean;
   showAcceptTermsCount: number;
