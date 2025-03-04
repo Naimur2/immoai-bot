@@ -1071,6 +1071,9 @@ body{
 .\!h-10{
   height: 2.5rem !important;
 }
+.h-10{
+  height: 2.5rem;
+}
 .h-5{
   height: 1.25rem;
 }
@@ -1088,6 +1091,9 @@ body{
 }
 .\!w-10{
   width: 2.5rem !important;
+}
+.w-10{
+  width: 2.5rem;
 }
 .w-5{
   width: 1.25rem;
@@ -1149,6 +1155,9 @@ body{
 .grid-cols-\[1fr\2c auto\]{
   grid-template-columns: 1fr auto;
 }
+.grid-cols-\[auto\2c 1fr\2c auto\]{
+  grid-template-columns: auto 1fr auto;
+}
 .grid-cols-\[auto\2c 1fr\]{
   grid-template-columns: auto 1fr;
 }
@@ -1205,6 +1214,9 @@ body{
 }
 .overflow-y-auto{
   overflow-y: auto;
+}
+.rounded{
+  border-radius: 0.25rem;
 }
 .rounded-\[0\.625rem\]{
   border-radius: 0.625rem;
@@ -1310,6 +1322,9 @@ body{
 .p-1{
   padding: 0.25rem;
 }
+.p-2{
+  padding: 0.5rem;
+}
 .p-4{
   padding: 1rem;
 }
@@ -1412,9 +1427,21 @@ body{
   --tw-text-opacity: 1;
   color: rgb(59 130 246 / var(--tw-text-opacity, 1));
 }
+.text-gray-500{
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity, 1));
+}
+.text-gray-700{
+  --tw-text-opacity: 1;
+  color: rgb(55 65 81 / var(--tw-text-opacity, 1));
+}
 .text-primary-100{
   --tw-text-opacity: 1;
   color: rgb(92 43 255 / var(--tw-text-opacity, 1));
+}
+.text-red-500{
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity, 1));
 }
 .text-white{
   --tw-text-opacity: 1;
@@ -1922,6 +1949,10 @@ html {
 .hover\:text-black:hover{
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity, 1));
+}
+.hover\:text-gray-700:hover{
+  --tw-text-opacity: 1;
+  color: rgb(55 65 81 / var(--tw-text-opacity, 1));
 }
 .hover\:text-primary-100:hover{
   --tw-text-opacity: 1;
