@@ -137,8 +137,16 @@ const ChatSettingsProvider = ({
         if (socketRef.current) {
           setIsChatLoading(true);
           try {
+
+            var visitor_id = window.localStorage.getItem('visitor_id')
+            if(!visitor_id){
+              visitor_id = Math.random().toString(36).substring(7);
+              window.localStorage.setItem('visitor_id', visitor_id)
+            }
+
             const messageData = JSON.parse(message);
             messageData.attachment = attachment;
+            messageData.visitor_id = visitor_id
             message = JSON.stringify(messageData);
           } catch (error) {
             
