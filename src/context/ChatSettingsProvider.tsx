@@ -147,6 +147,7 @@ const ChatSettingsProvider = ({
             const messageData = JSON.parse(message);
             messageData.attachment = attachment;
             messageData.visitor_id = visitor_id
+            console.log('visitor_id',visitor_id);
             message = JSON.stringify(messageData);
           } catch (error) {
             
