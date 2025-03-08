@@ -46,7 +46,6 @@ export default function ChatBubble({
         } 
     }
 
-    console.log('showAppointment',showAppointment);
 
     return (
         <div
