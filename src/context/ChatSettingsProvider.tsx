@@ -74,6 +74,7 @@ const ChatSettingsProvider = ({
   React.useEffect(() => {
     try {
       if (apiKey) {
+       
         const ws = new WebSocket(
           `wss://api.immoai-bot.com/chatbot/start_chat/ws/${apiKey}`
         );
@@ -134,6 +135,9 @@ const ChatSettingsProvider = ({
         setIsOpened(isOpened);
       },
       sendMessage: (message: string, attachment: false | Media) => {
+
+        console.log('message',message);
+
         if (socketRef.current) {
           setIsChatLoading(true);
           try {
