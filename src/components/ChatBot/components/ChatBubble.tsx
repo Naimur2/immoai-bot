@@ -4,7 +4,7 @@ import defaultImage from "../../../assets/images/chatbot.png";
 import Markdown from "react-markdown";
 import { InlineWidget } from "react-calendly";
 
-function isCalendlyAppointmentURL(url : string) {
+function isCalendlyAppointmentURL(url: string) {
     const regex = /^https?:\/\/calendly\.com\/[\w-]+\/[\w-]+$/;
     return regex.test(url);
 }
@@ -34,18 +34,19 @@ export default function ChatBubble({
         text = `
             <div>
                 ${textParsed.message}
-                ${textParsed.attachment ? `<p> <a target="__blank" href="${textParsed.attachment?.preview}"> Attachment : ${textParsed.attachment?.id} </a> </p>` : ''}
+                ${
+                    textParsed.attachment
+                        ? `<p> <a target="__blank" href="${textParsed.attachment?.preview}"> Attachment : ${textParsed.attachment?.id} </a> </p>`
+                        : ""
+                }
             </div>
         `;
-
-       
     } catch (error) {
-        if(isCalendlyAppointmentURL(text)){
-            console.log('Calendly Appointment URL',text);
-            showAppointment = true
-        } 
+        if (isCalendlyAppointmentURL(text)) {
+            console.log("Calendly Appointment URL", text);
+            showAppointment = true;
+        }
     }
-
 
     return (
         <div
@@ -54,7 +55,7 @@ export default function ChatBubble({
             })}
         >
             <div
-                className={cn("max-w-[90%] grid gap-4 min-w-[40%]", {
+                className={cn("max-w-[95%] grid gap-4 min-w-[40%]", {
                     "grid-cols-[auto,1fr]": type === "bot",
                 })}
             >
@@ -74,25 +75,23 @@ export default function ChatBubble({
                     className={cn(
                         "p-5 text-black border border-primary-100 font-medium",
                         {
-                            "bg-primary-100 text-white rounded-b-[0.625rem] rounded-e-[0.625rem]":
+                            "bg-primary-100 text-white rounded-b-[10px] rounded-e-[10px]":
                                 type === "bot",
-                            "rounded-s-[0.625rem] rounded-t-[0.625rem]":
-                                type !== "bot",
+                            "rounded-s-[10px] rounded-t-[10px]": type !== "bot",
                         }
                     )}
                     style={{ color, backgroundColor }}
                 >
-                    
-                   { showAppointment ?  <InlineWidget
-                    // styles={{ minHeight: "100px", width: "100%" }} 
-                    url={text}
-                    /> : <Markdown className="text-sm md:text-base prose lg:prose-xl" components={{
-                        div: ({ node, ...props }) => <div dangerouslySetInnerHTML={{ __html: text }} {...props} />
-                    }} />} 
-
-                    
-
-
+                    {showAppointment ? (
+                        <InlineWidget
+                            // styles={{ minHeight: "100px", width: "100%" }}
+                            url={text}
+                        />
+                    ) : (
+                        <Markdown className="text-sm md:text-base prose lg:prose-xl">
+                            {textParsed?.message ?? text}
+                        </Markdown>
+                    )}
                 </div>
             </div>
         </div>

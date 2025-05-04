@@ -1,4 +1,5 @@
 import { fontFamily } from "tailwindcss/defaultTheme";
+import remToPx from 'tailwindcss-rem-to-px';
 
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"], // Scan all files in src/ for classes
@@ -52,7 +53,7 @@ module.exports = {
       container: {
         center: true,
         padding: {
-          DEFAULT: "1rem",
+          DEFAULT: "16px",
         },
       },
       backgroundImage: {
@@ -75,5 +76,6 @@ module.exports = {
     require("tailwindcss-animate"),
     require("tailwind-scrollbar-hide"),
     require("@tailwindcss/typography"),
+    remToPx()
   ],
 };

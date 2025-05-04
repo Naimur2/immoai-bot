@@ -8,5 +8,5 @@ type ChatBubbleBotProps = {
     options: TOptions[];
     onSelected?: (value: string) => void;
 };
-export default function MultiChoiceOption({ type, options, onSelected }: ChatBubbleBotProps): React.JSX.Element;
+export default function MultiChoiceOption({ type, options, onSelected, }: ChatBubbleBotProps): React.JSX.Element;
 export {};
