@@ -1206,6 +1206,9 @@ body{
 .gap-4{
   gap: 16px;
 }
+.\!overflow-hidden{
+  overflow: hidden !important;
+}
 .overflow-hidden{
   overflow: hidden;
 }
@@ -1214,6 +1217,9 @@ body{
 }
 .overflow-y-auto{
   overflow-y: auto;
+}
+.\!rounded-full{
+  border-radius: 9999px !important;
 }
 .rounded{
   border-radius: 4px;

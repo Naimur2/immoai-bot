@@ -61,7 +61,7 @@ export default function ChatBubble({
             >
                 {type === "bot" && (
                     <div
-                        className="!h-10 !w-10 rounded-full grid place-items-center bg-primary-100"
+                        className="!h-10 !w-10 !rounded-full !overflow-hidden grid place-items-center bg-primary-100"
                         style={{ backgroundColor: imageBackgroundColor }}
                     >
                         <img
