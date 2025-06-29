@@ -43,25 +43,32 @@ export default function ChatDetails() {
                 </p>
             </div>
             <div className="py-4 flex flex-col gap-4">
-                <div className="py-4 px-4 w-full max-w-lg grid grid-cols-[auto,1fr] gap-4 mx-auto bg-chat-item-bg rounded-lg">
+                <div className="py-4 px-4 w-full max-w-lg grid grid-cols-[1.5rem,1fr] gap-4 mx-auto bg-chat-item-bg rounded-lg">
                     <img
                         src={telephoneSvg}
                         alt="phone"
                         width={24}
                         height={24}
+                        className="size-5 sm:size-6"
                     />
                     <a
-                        className="text-[#313131] font-medium text-lg"
+                        className="text-[#313131] font-medium text-sm sm:text-lg"
                         href={`tel:${data?.assistant_general?.agent_telephone}`}
                     >
                         {data?.assistant_general?.agent_telephone ||
                             "0800 123 456"}
                     </a>
                 </div>
-                <div className="py-4 px-4 w-full max-w-lg grid grid-cols-[auto,1fr] gap-4 mx-auto bg-chat-item-bg rounded-lg">
-                    <img src={globeSvg} alt="phone" width={24} height={24} />
+                <div className="py-4 px-4 w-full max-w-lg grid grid-cols-[1.5rem,1fr] gap-4 mx-auto bg-chat-item-bg rounded-lg">
+                    <img
+                        src={globeSvg}
+                        alt="phone"
+                        width={24}
+                        height={24}
+                        className="size-5 sm:size-6"
+                    />
                     <a
-                        className="text-[#313131] font-medium text-lg"
+                        className="text-[#313131] font-medium text-sm sm:text-lg"
                         href={data?.assistant_general?.agent_website}
                         target="_blank"
                         rel="noreferrer"
@@ -70,16 +77,16 @@ export default function ChatDetails() {
                             "https://www.td-digitalsolutions.com/"}
                     </a>
                 </div>
-                <div className="py-4 px-4 w-full max-w-lg grid grid-cols-[auto,1fr] gap-4 mx-auto bg-chat-item-bg rounded-lg">
+                <div className="py-4 px-4 w-full max-w-lg grid grid-cols-[1.5rem,1fr] gap-4 mx-auto bg-chat-item-bg rounded-lg">
                     <img
                         src={mailSvg}
                         alt="phone"
                         width={24}
                         height={24}
-                        className="translate-y-1"
+                        className="translate-y-1 size-5 sm:size-6"
                     />
                     <a
-                        className="text-[#313131] font-medium text-lg"
+                        className="text-[#313131] font-medium text-sm sm:text-lg"
                         href={`mailto:${data?.assistant_general?.agent_email}`}
                     >
                         {data?.assistant_general?.agent_email ||
@@ -89,14 +96,14 @@ export default function ChatDetails() {
             </div>
             <div className="py-4">
                 <a
-                    className="text-black font-medium text-lg mx-auto border-t border-b border-[#CCBDFF] py-2 w-full max-w-lg text-center px-4 block"
+                    className="text-black font-medium text-base sm:text-lg mx-auto border-t border-b border-[#CCBDFF] py-2 w-full max-w-lg text-center px-4 block"
                     href={data?.assistant_general?.terms_and_conditions_url}
                     target="_blank"
                 >
                     Geschäftsbedingungen
                 </a>
                 <a
-                    className="text-black font-medium text-lg mx-auto border-b border-[#CCBDFF] py-2 w-full max-w-lg text-center px-4 block"
+                    className="text-black font-medium text-base sm:text-lg mx-auto border-b border-[#CCBDFF] py-2 w-full max-w-lg text-center px-4 block"
                     href={data?.assistant_general?.privacy_policy_url}
                     target="_blank"
                 >

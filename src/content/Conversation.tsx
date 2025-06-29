@@ -18,7 +18,7 @@ const Conversation: React.FC = () => {
     return (
         <div
             className={
-                "fixed bottom-8 right-10 open-chat w-[calc(100vw-80px)] h-[clamp(240px,var(--chatbot-height,80dvh),1120px)] sm:w-[clamp(160px,calc(100dvw-80px),680px)]  grid"
+                "fixed bottom-8 right-2 sm:right-10 open-chat w-[calc(100vw-16px)] h-[clamp(240px,var(--chatbot-height,90dvh),1120px)] sm:w-[clamp(160px,calc(100dvw-80px),680px)]  grid"
             }
             style={
                 {

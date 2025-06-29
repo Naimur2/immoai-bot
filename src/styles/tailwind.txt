@@ -1060,6 +1060,10 @@ body{
   width: 80px;
   height: 80px;
 }
+.size-5{
+  width: 20px;
+  height: 20px;
+}
 .size-\[var\(--widget-size\)\]{
   width: var(--widget-size);
   height: var(--widget-size);
@@ -1077,8 +1081,8 @@ body{
 .h-5{
   height: 20px;
 }
-.h-\[clamp\(240px\2c var\(--chatbot-height\2c 80dvh\)\2c 1120px\)\]{
-  height: clamp(240px,var(--chatbot-height,80dvh),1120px);
+.h-\[clamp\(240px\2c var\(--chatbot-height\2c 90dvh\)\2c 1120px\)\]{
+  height: clamp(240px,var(--chatbot-height,90dvh),1120px);
 }
 .h-\[var\(--chat-now-height\)\]{
   height: var(--chat-now-height);
@@ -1101,8 +1105,8 @@ body{
 .w-\[calc\(100\%-32px\)\]{
   width: calc(100% - 32px);
 }
-.w-\[calc\(100vw-80px\)\]{
-  width: calc(100vw - 80px);
+.w-\[calc\(100vw-16px\)\]{
+  width: calc(100vw - 16px);
 }
 .w-\[var\(--chat-now-width\)\]{
   width: var(--chat-now-width);
@@ -1151,6 +1155,9 @@ body{
 }
 .grid-cols-1{
   grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+.grid-cols-\[1\.5rem\2c 1fr\]{
+  grid-template-columns: 1.5rem 1fr;
 }
 .grid-cols-\[1fr\2c auto\]{
   grid-template-columns: 1fr auto;
@@ -1990,8 +1997,22 @@ html {
 }
 @media (min-width: 640px){
 
+  .sm\:right-10{
+    right: 40px;
+  }
+
+  .sm\:size-6{
+    width: 24px;
+    height: 24px;
+  }
+
   .sm\:w-\[clamp\(160px\2c calc\(100dvw-80px\)\2c 680px\)\]{
     width: clamp(160px,calc(100dvw - 80px),680px);
+  }
+
+  .sm\:text-lg{
+    font-size: 18px;
+    line-height: 28px;
   }
 
   .sm\:text-sm{
