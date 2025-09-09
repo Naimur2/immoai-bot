@@ -1,7 +1,7 @@
+import { DocumentUpload } from "iconsax-react";
 import React, { useState } from "react";
 import { cn } from "../../../lib/utils";
 import SendIcon from "../../icons/SendIcon";
-import { DocumentUpload } from "iconsax-react";
 // Allowed file types
 const allowedTypes = [
     "image/png",
@@ -27,7 +27,7 @@ interface ChatToolbarProps {
     isDisabled: boolean;
 }
 
-const baseUrl = "https://api.immoai-bot.com";
+const baseUrl = "https://api.salesai-bot.com";
 
 export default function ChatToolbar({ onSend, isDisabled }: ChatToolbarProps) {
     const [value, setValue] = useState("");

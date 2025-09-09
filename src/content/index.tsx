@@ -9,6 +9,7 @@ const ChatBox: React.FC = () => {
   if (isLoading || !data) {
     return null;
   }
+  
 
   return isOpened ? <Conversation /> : <ChatWidget />;
 };

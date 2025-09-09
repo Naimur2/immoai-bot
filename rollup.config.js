@@ -12,7 +12,7 @@ import typescript from "rollup-plugin-typescript2";
 
 const myVariables = {
   NODE_ENV: "production",
-  VITE_APP_API_URL: "https://api.immoai-bot.com",
+  VITE_APP_API_URL: "https://api.salesai-bot.com",
 };
 
 export default {

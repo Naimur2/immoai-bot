@@ -1,10 +1,10 @@
+import { Media } from "@/components/ChatBot/components/ChatToolbar";
 import React, { useLayoutEffect, useState } from "react";
 import { TGetAssistantConfig } from "../components/types";
 import ChatSettingsContext, { TMessage } from "./ChatSettingsContext";
-import { Media } from "@/components/ChatBot/components/ChatToolbar";
 
 // const baseUrl = "http://localhost:8000";
-const baseUrl = "https://api.immoai-bot.com";
+const baseUrl = "https://api.salesai-bot.com";
 
 type TMessageReceived = {
   status: "success" | "error";
@@ -76,7 +76,7 @@ const ChatSettingsProvider = ({
       if (apiKey) {
        
         const ws = new WebSocket(
-          `wss://api.immoai-bot.com/chatbot/start_chat/ws/${apiKey}`
+          `wss://api.salesai-bot.com/chatbot/start_chat/ws/${apiKey}`
         );
 
         // const ws = new WebSocket(
@@ -142,7 +142,7 @@ const ChatSettingsProvider = ({
           setIsChatLoading(true);
           try {
 
-            var visitor_id = window.localStorage.getItem('visitor_id')
+            let visitor_id = window.localStorage.getItem('visitor_id')
             if(!visitor_id){
               visitor_id = Math.random().toString(36).substring(7);
               window.localStorage.setItem('visitor_id', visitor_id)
