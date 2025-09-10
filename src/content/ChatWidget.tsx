@@ -47,9 +47,12 @@ export default function ChatWidget() {
   }, [chatNowAppearTime]);
 
 
-  if (!data || isOpened) {
+  if (!data || !isOpened) {
     return null;
   }
+
+
+
 
 
   return (
